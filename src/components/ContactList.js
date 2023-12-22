@@ -5,7 +5,7 @@ import {
   fetchContacts,
   contactSelector,
 } from "../redux/Reducers/contactReducers";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const ContactList = () => {
   const contacts = useSelector(contactSelector);
@@ -49,30 +49,19 @@ export const ContactList = () => {
                   <td class="px-6 py-4">{contact.email}</td>
                   <td class="px-6 py-4">{contact.phone}</td>
                   <td class="flex items-center px-6 py-4">
-                    <a
-                      href="/"
-                      class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      Edit
-                    </a>
-                    {/* <Link
-                      to={`/edit/${contact.id}`}
+                    <NavLink
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      to={`/edit/${contact.id}`}
                     >
                       Edit
-                    </Link> */}
-                    {/* <a
-                      href="/"
-                      class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3"
-                    >
-                      Remove
-                    </a> */}
-                    <button
-                      type="button"
+                    </NavLink>
+
+                    <NavLink
                       className="font-medium text-red-600 dark:text-red-500 hover:underline ms-3"
+                      to={`/delete/${contact.id}`}
                     >
                       Remove
-                    </button>
+                    </NavLink>
                   </td>
                 </tr>
               ))}
