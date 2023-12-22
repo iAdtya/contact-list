@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export const FetchContact = () => {
   let data = "https://jsonplaceholder.typicode.com/users/1";
 
@@ -24,8 +26,11 @@ export const FetchContact = () => {
 
   return (
     <>
-      <div>
-        <button onClick={addContact} className="text-white 	">
+      <div className="flex mt-24 justify-center ">
+        <button
+          onClick={addContact}
+          className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 	"
+        >
           Add Contact
         </button>
       </div>
