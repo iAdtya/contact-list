@@ -1,4 +1,31 @@
+import { useDispatch } from "react-redux";
+import { updateContact } from "../redux/Reducers/contactReducers";
+import { NavLink } from "react-router-dom";
+
 export const Edit = () => {
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+
+    const updatedContact = {
+      id: 1,
+      name,
+      email,
+      phone,
+    };
+
+    console.log(updatedContact);
+
+    dispatch(updateContact(updatedContact));
+  };
+
+
+
   return (
     <>
       <div className="flex justify-center mt-20">
@@ -6,7 +33,7 @@ export const Edit = () => {
           <h1 className="text-4xl mb-6 mt-10 text-center text-white">
             Edit Contact
           </h1>
-          <form className="bg-yellow shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <form onSubmit={handleSubmit} className="bg-yellow shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <div className="mb-4">
               <label
                 className="block text-white text-sm font-bold mb-2"
@@ -52,11 +79,13 @@ export const Edit = () => {
                 placeholder="Phone"
               />
             </div>
+            <div className="flex justify-evenly mb-4 ">
+              <button type="submit" className="btn btn-primary">Update Contact</button>
+              <button className="btn btn-error ">
+                <NavLink  to="/">Cancel</NavLink>
+              </button>
+            </div>
           </form>
-          <div className="flex justify-evenly mb-4 ">
-            <button className="btn btn-primary">Update Contact</button>
-            <button className="btn btn-error ">Cancel</button>
-          </div>
         </div>
       </div>
     </>

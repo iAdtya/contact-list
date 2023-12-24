@@ -9,6 +9,7 @@ import { NavLink } from "react-router-dom";
 
 export const ContactList = () => {
   const contacts = useSelector(contactSelector);
+  //todo to check if the data is in the state
   // console.log(contacts);
   const dispatch = useDispatch();
 
@@ -16,22 +17,26 @@ export const ContactList = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
+  useEffect(() => {
+    console.log(contacts);
+  }, [contacts]);
+
   return (
     <>
-      <div class="flex justify-center mt-36  relative overflow-x-auto shadow-md sm:rounded-lg ">
-        <table class="w-3/5  text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <div className="flex justify-center mt-36  relative overflow-x-auto shadow-md sm:rounded-lg ">
+        <table className="w-3/5  text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 Name
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 email
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 Phone
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 Action
               </th>
             </tr>
@@ -39,16 +44,19 @@ export const ContactList = () => {
           <tbody>
             {Array.isArray(contacts) &&
               contacts.map((contact, id) => (
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <tr
+                  key={id}
+                  className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                >
                   <th
                     scope="row"
-                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     {contact.name}
                   </th>
-                  <td class="px-6 py-4">{contact.email}</td>
-                  <td class="px-6 py-4">{contact.phone}</td>
-                  <td class="flex items-center px-6 py-4">
+                  <td className="px-6 py-4">{contact.email}</td>
+                  <td className="px-6 py-4">{contact.phone}</td>
+                  <td className="flex items-center px-6 py-4">
                     <NavLink
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                       to={`/edit/${contact.id}`}

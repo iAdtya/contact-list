@@ -1,4 +1,3 @@
-// contactReducers.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -45,5 +44,4 @@ const contactSlice = createSlice({
 export const contactReducer = contactSlice.reducer;
 export const { addContact, deleteContact, updateContact } =
   contactSlice.actions;
-
 export const contactSelector = (state) => state.contactReducer.contacts;
