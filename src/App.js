@@ -8,7 +8,7 @@ import { Error } from "./components/Error";
 import { useDispatch } from "react-redux";
 import { fetchContacts } from "./redux/Reducers/contactReducers";
 import { useEffect } from "react";
-import toast, { Toaster } from 'react-hot-toast';
+import  { Toaster } from 'react-hot-toast';
 
 function App() {
   const dispatch = useDispatch();
