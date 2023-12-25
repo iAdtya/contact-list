@@ -2,7 +2,11 @@
 
 This project is a contact list app built with React, Redux Toolkit, and React Router DOM. It fetches and displays a list of contacts from an API, and allows you to add, update, and delete contacts.
 
+## OUTPUT
+![Screenshot 2023-12-25 224250](https://github.com/iAdtya/contact-list/assets/93979441/f50ae053-9694-42bf-b480-117826e8fa2c)
+
 ## Project Structure
+
 
 ```
 contact-list-app
