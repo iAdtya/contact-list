@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
-  fetchContacts,
   contactSelector,
   deleteContact,
 } from "../redux/Reducers/contactReducers";

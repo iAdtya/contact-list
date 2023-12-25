@@ -2,10 +2,12 @@ import { useDispatch } from "react-redux";
 import { updateContact } from "../redux/Reducers/contactReducers";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export const Edit = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { id } = useParams();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,7 +17,7 @@ export const Edit = () => {
     const phone = document.getElementById("phone").value;
 
     const updatedContact = {
-      id: 1,
+      id: id,
       name,
       email,
       phone,
