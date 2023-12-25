@@ -1,21 +1,28 @@
 // ContactList.js
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   fetchContacts,
   contactSelector,
+  deleteContact,
 } from "../redux/Reducers/contactReducers";
 import { NavLink } from "react-router-dom";
 
 export const ContactList = () => {
   const contacts = useSelector(contactSelector);
+  const navigate = useNavigate();
+
   //todo to check if the data is in the state
   // console.log(contacts);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+  const handleSubmit = (id) => {
+    // e.preventDefault();
+    dispatch(deleteContact(id));
+    console.log("delete");
+    navigate("/");
+  };
 
   useEffect(() => {
     console.log(contacts);
@@ -64,12 +71,12 @@ export const ContactList = () => {
                       Edit
                     </NavLink>
 
-                    <NavLink
+                    <button
+                      onClick={() => handleSubmit(contact.id)}
                       className="font-medium text-red-600 dark:text-red-500 hover:underline ms-3"
-                      to={`/delete/${contact.id}`}
                     >
                       Remove
-                    </NavLink>
+                    </button>
                   </td>
                 </tr>
               ))}

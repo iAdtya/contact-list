@@ -1,8 +1,10 @@
 import { useDispatch } from "react-redux";
 import { updateContact } from "../redux/Reducers/contactReducers";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Edit = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
@@ -22,9 +24,8 @@ export const Edit = () => {
     console.log(updatedContact);
 
     dispatch(updateContact(updatedContact));
+    navigate("/");
   };
-
-
 
   return (
     <>
@@ -33,7 +34,10 @@ export const Edit = () => {
           <h1 className="text-4xl mb-6 mt-10 text-center text-white">
             Edit Contact
           </h1>
-          <form onSubmit={handleSubmit} className="bg-yellow shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <form
+            onSubmit={handleSubmit}
+            className="bg-yellow shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          >
             <div className="mb-4">
               <label
                 className="block text-white text-sm font-bold mb-2"
@@ -79,10 +83,12 @@ export const Edit = () => {
                 placeholder="Phone"
               />
             </div>
-            <div className="flex justify-evenly mb-4 ">
-              <button type="submit" className="btn btn-primary">Update Contact</button>
+            <div className="flex justify-evenly ">
+              <button type="submit" className="btn btn-primary">
+                Update Contact
+              </button>
               <button className="btn btn-error ">
-                <NavLink  to="/">Cancel</NavLink>
+                <NavLink to="/">Cancel</NavLink>
               </button>
             </div>
           </form>

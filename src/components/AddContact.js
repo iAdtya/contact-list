@@ -1,7 +1,9 @@
 import { useDispatch } from "react-redux";
 import { addContact } from "../redux/Reducers/contactReducers";
+import { useNavigate } from "react-router-dom";
 
 export const AddContact = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
@@ -11,8 +13,12 @@ export const AddContact = () => {
     const email = document.getElementById("email").value;
     const phone = document.getElementById("phone").value;
 
+    let idCounter = 0;
+
+    idCounter = idCounter < 100 ? idCounter + 1 : 0;
+
     const updatedContact = {
-      id: Math.random() * 10,
+      id: idCounter,
       name,
       email,
       phone,
@@ -21,6 +27,7 @@ export const AddContact = () => {
     console.log(updatedContact);
 
     dispatch(addContact(updatedContact));
+    navigate("/");
   };
 
   return (
@@ -82,7 +89,7 @@ export const AddContact = () => {
                 placeholder="Phone"
               />
             </div>
-            <button type="submit" className="btn btn-primary ">
+            <button type="submit" className="btn w-full mt-4  btn-primary ">
               Add Contact
             </button>
           </form>

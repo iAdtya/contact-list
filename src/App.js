@@ -3,16 +3,26 @@ import { Navbar } from "./components/Navbar";
 import { AddContact } from "./components/AddContact";
 import { Edit } from "./components/Edit";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Error } from "./components/Error";
+
+import { useDispatch } from "react-redux";
+import { fetchContacts } from "./redux/Reducers/contactReducers";
+import { useEffect } from "react";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Navbar />,
-      errorElement: <h1>Not found</h1>,
+      errorElement: <Error />,
       children: [
         {
-          path: "/",
+          index: true,
           element: <ContactList />,
         },
         {
