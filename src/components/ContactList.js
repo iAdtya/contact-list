@@ -31,7 +31,7 @@ export const ContactList = () => {
 
   return (
     <>
-      <div className="flex justify-center mt-36  relative overflow-x-auto shadow-md sm:rounded-lg ">
+      <div className="flex justify-center mt-32  relative overflow-x-auto shadow-md sm:rounded-lg ">
         <table className="w-3/5  text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
