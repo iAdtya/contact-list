@@ -1,20 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  fetchContacts,
-  contactSelector,
-} from "../redux/Reducers/contactReducers";
-import { useEffect } from "react";
-
 export const Navbar = () => {
-  const dispatch = useDispatch();
-  // const contacts = useSelector(contactSelector);
-
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // }, [dispatch]);
-
-
   return (
     <>
       <nav className="bg-white bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]   dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">

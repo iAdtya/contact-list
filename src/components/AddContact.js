@@ -1,6 +1,9 @@
 import { useDispatch } from "react-redux";
 import { addContact } from "../redux/Reducers/contactReducers";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+
+const notify = () => toast.success("Contact Added!!");
 
 export const AddContact = () => {
   const navigate = useNavigate();
@@ -89,7 +92,11 @@ export const AddContact = () => {
                 placeholder="Phone"
               />
             </div>
-            <button type="submit" className="btn w-full mt-4  btn-primary ">
+            <button
+              onClick={notify}
+              type="submit"
+              className="btn w-full mt-4  btn-primary "
+            >
               Add Contact
             </button>
           </form>

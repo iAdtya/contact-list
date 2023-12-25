@@ -3,6 +3,9 @@ import { updateContact } from "../redux/Reducers/contactReducers";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import toast from 'react-hot-toast';
+const notify = () => toast.success('Contact Updated!!');
+
 
 export const Edit = () => {
   const navigate = useNavigate();
@@ -86,7 +89,7 @@ export const Edit = () => {
               />
             </div>
             <div className="flex justify-evenly ">
-              <button type="submit" className="btn btn-primary">
+              <button onClick={notify} type="submit" className="btn btn-primary">
                 Update Contact
               </button>
               <button className="btn btn-error ">

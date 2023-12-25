@@ -7,6 +7,8 @@ import {
   deleteContact,
 } from "../redux/Reducers/contactReducers";
 import { NavLink } from "react-router-dom";
+import toast from "react-hot-toast";
+const notify = () => toast.success("Deleted Successfully");
 
 export const ContactList = () => {
   const contacts = useSelector(contactSelector);
@@ -71,7 +73,10 @@ export const ContactList = () => {
                     </NavLink>
 
                     <button
-                      onClick={() => handleSubmit(contact.id)}
+                      onClick={() => {
+                        handleSubmit(contact.id);
+                        notify();
+                      }}
                       className="font-medium text-red-600 dark:text-red-500 hover:underline ms-3"
                     >
                       Remove
