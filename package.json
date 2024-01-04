@@ -19,8 +19,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "test": "jest",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "daisyui": "^4.4.23",
+    "jest": "^27.5.1",
     "tailwindcss": "^3.4.0"
   }
 }

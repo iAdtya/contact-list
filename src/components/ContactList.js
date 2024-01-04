@@ -25,9 +25,9 @@ export const ContactList = () => {
     navigate("/");
   };
 
-  useEffect(() => {
-    console.log(contacts);
-  }, [contacts]);
+  // useEffect(() => {
+  //   console.log(contacts);
+  // }, [contacts]);
 
   return (
     <>

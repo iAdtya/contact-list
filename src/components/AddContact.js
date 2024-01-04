@@ -9,6 +9,10 @@ export const AddContact = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const onAdd = (contact) => {
+    dispatch(addContact(contact));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
